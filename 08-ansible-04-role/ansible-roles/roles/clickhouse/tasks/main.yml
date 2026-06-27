@@ -1,0 +1,108 @@
+---
+- name: Include OS Family Specific Variables
+  ansible.builtin.include_vars: "{{ ansible_os_family | lower }}.yml"
+  tags:
+    - always
+
+- name: include_tasks
+  ansible.builtin.include_tasks: precheck.yml
+  tags:
+    - always
+
+- name: Install ClickHouse
+  block:
+    - name: Install dependencies
+      ansible.builtin.yum:
+        name:
+          - curl
+          - wget
+          - tar
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install dependencies (Debian)
+      ansible.builtin.apt:
+        name:
+          - curl
+          - wget
+          - tar
+        state: present
+        update_cache: true
+      when: ansible_os_family == 'Debian'
+
+    - name: Download and install ClickHouse
+      ansible.builtin.shell:
+        cmd: |
+          curl -sSL https://clickhouse.com/ | sh
+          sudo ./clickhouse install -- --config=/etc/clickhouse-server/config.xml
+        creates: /usr/bin/clickhouse-server
+      register: clickhouse_install
+
+    - name: Create ClickHouse directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: clickhouse
+        group: clickhouse
+        mode: '0755'
+      loop:
+        - /etc/clickhouse-server
+        - /var/lib/clickhouse
+        - /var/log/clickhouse-server
+      ignore_errors: true
+
+    - name: Create ClickHouse user
+      ansible.builtin.user:
+        name: clickhouse
+        system: true
+        shell: /sbin/nologin
+        create_home: false
+      ignore_errors: true
+
+  tags:
+    - install
+
+- name: include_tasks
+  ansible.builtin.include_tasks: service.yml
+  tags:
+    - service
+- name: Create ClickHouse systemd service
+  ansible.builtin.template:
+    src: clickhouse.service.j2
+    dest: /etc/systemd/system/clickhouse-server.service
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_os_family == 'RedHat'
+  notify:
+    - reload systemd
+    - start clickhouse
+  tags:
+    - service
+- name: Create ClickHouse systemd service
+  ansible.builtin.template:
+    src: clickhouse.service.j2
+    dest: /etc/systemd/system/clickhouse-server.service
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_os_family == 'RedHat'
+  notify:
+    - reload systemd
+    - start clickhouse
+  tags:
+    - service
+
+- name: Create ClickHouse systemd service
+  ansible.builtin.template:
+    src: clickhouse.service.j2
+    dest: /etc/systemd/system/clickhouse-server.service
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_os_family == 'RedHat'
+  notify:
+    - reload systemd
+    - start clickhouse
+  tags:
+    - service

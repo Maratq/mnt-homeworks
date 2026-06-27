@@ -1,0 +1,18 @@
+---
+all:
+  children:
+    clickhouse:
+      hosts:
+        clickhouse-01:
+          ansible_host: 37.230.169.249
+          ansible_user: admin-devops
+    vector:
+      hosts:
+        vector-01:
+          ansible_host: 89.169.173.100
+          ansible_user: admin-devops
+    lighthouse:
+      hosts:
+        lighthouse-01:
+          ansible_host: 89.169.162.244
+          ansible_user: admin-devops

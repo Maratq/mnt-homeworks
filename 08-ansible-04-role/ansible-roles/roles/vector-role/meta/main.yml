@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: your-username
+  description: Ansible role for installing and configuring Vector
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+  galaxy_tags:
+    - vector
+    - monitoring

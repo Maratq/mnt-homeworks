@@ -1,0 +1,21 @@
+---
+all:
+  children:
+    clickhouse:
+      hosts:
+        clickhouse-01:
+          ansible_host: 111.88.148.204
+          ansible_user: admin-devops
+          ansible_python_interpreter: /usr/bin/python3
+    vector:
+      hosts:
+        vector-01:
+          ansible_host: 111.88.145.64
+          ansible_user: admin-devops
+          ansible_python_interpreter: /usr/bin/python3
+    lighthouse:
+      hosts:
+        lighthouse-01:
+          ansible_host: 51.250.108.162
+          ansible_user: admin-devops
+          ansible_python_interpreter: /usr/bin/python3

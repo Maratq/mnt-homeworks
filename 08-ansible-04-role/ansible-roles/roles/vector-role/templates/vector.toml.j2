@@ -1,0 +1,7 @@
+[sources.internal_metrics]
+type = "internal_metrics"
+
+[sinks.prometheus]
+type = "prometheus"
+inputs = ["internal_metrics"]
+address = "0.0.0.0:{{ vector_port }}"

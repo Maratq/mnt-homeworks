@@ -1,0 +1,9 @@
+---
+- name: Install ClickHouse via shell script
+  ansible.builtin.shell:
+    cmd: |
+      curl -sSL https://clickhouse.com/ | sh
+      sudo ./clickhouse install -- --config=/etc/clickhouse-server/config.xml
+    creates: /usr/bin/clickhouse-server
+  tags:
+    - clickhouse

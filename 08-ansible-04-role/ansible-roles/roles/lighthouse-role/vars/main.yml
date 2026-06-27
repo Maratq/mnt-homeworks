@@ -1,0 +1,6 @@
+---
+nginx_user: www-data
+nginx_group: www-data
+nginx_packages:
+  - nginx
+  - git

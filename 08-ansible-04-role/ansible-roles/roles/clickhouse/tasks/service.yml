@@ -1,0 +1,49 @@
+---
+- name: Ensure clickhouse-server.service is enabled and started
+  ansible.builtin.systemd:
+    name: clickhouse-server
+    state: started
+    enabled: true
+    daemon_reload: true
+  register: service_result
+  ignore_errors: true
+
+- name: If systemd failed, try using service module
+  ansible.builtin.service:
+    name: clickhouse-server
+    state: started
+    enabled: true
+  when: service_result is failed
+  ignore_errors: true
+
+- name: Fallback to manual start if service not found
+  ansible.builtin.shell:
+    cmd: |
+      sudo /usr/bin/clickhouse-server --config-file=/etc/clickhouse-server/config.xml --daemon
+    creates: /var/run/clickhouse-server/clickhouse-server.pid
+  when: service_result is failed
+  ignore_errors: true
+
+- name: Check if ClickHouse is running
+  ansible.builtin.command:
+    cmd: clickhouse-client -q "SELECT 1"
+  register: clickhouse_test
+  changed_when: false
+  ignore_errors: true
+  tags:
+    - verify
+
+- name: Wait for ClickHouse to start
+  ansible.builtin.wait_for:
+    port: 9000
+    timeout: 30
+  when: clickhouse_test is failed
+  ignore_errors: true
+
+- name: Display ClickHouse status
+  ansible.builtin.debug:
+    msg: |
+      ClickHouse installation status:
+      - Service: {{ '✅ Running' if clickhouse_test.rc == 0 else '❌ Not running' }}
+      - Version: {{ clickhouse_version }}
+  when: clickhouse_test is defined

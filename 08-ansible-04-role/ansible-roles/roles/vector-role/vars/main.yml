@@ -1,0 +1,5 @@
+---
+vector_apt_key: "https://packages.vector.com/keys/vector.asc"
+vector_repo: "deb https://packages.vector.com/stable/ubuntu {{ ansible_distribution_release }} main"
+vector_packages:
+  - vector
