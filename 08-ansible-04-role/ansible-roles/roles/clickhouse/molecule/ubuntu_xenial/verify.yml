@@ -1,0 +1,15 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Check ClickHouse is installed
+      ansible.builtin.command:
+        cmd: clickhouse-client --version
+      register: clickhouse_version
+      changed_when: false
+
+    - name: Display version
+      ansible.builtin.debug:
+        msg: "ClickHouse version: {{ clickhouse_version.stdout }}"

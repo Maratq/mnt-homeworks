@@ -1,0 +1,30 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Check if vector binary exists
+      ansible.builtin.command:
+        cmd: which vector
+      register: vector_bin
+      changed_when: false
+      failed_when: vector_bin.rc != 0
+
+    - name: Display vector version
+      ansible.builtin.command:
+        cmd: vector --version
+      register: vector_version
+      changed_when: false
+
+    - name: Check vector config file exists
+      ansible.builtin.stat:
+        path: /etc/vector/vector.toml
+      register: vector_config
+
+    - name: Display summary
+      ansible.builtin.debug:
+        msg:
+          - "✅ Vector binary: {{ vector_bin.stdout }}"
+          - "✅ Vector version: {{ vector_version.stdout }}"
+          - "✅ Config file: {{ 'exists' if vector_config.stat.exists else 'missing' }}"

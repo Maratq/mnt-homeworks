@@ -1,0 +1,15 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Install sudo (if missing)
+      ansible.builtin.raw: apt-get update && apt-get install -y sudo
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+      when: ansible_os_family == 'Debian'

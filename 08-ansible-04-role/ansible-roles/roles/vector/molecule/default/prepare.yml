@@ -1,0 +1,28 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Update apt cache (Ubuntu)
+      ansible.builtin.apt:
+        update_cache: true
+      when: ansible_os_family == 'Debian'
+
+    - name: Install systemd (Ubuntu)
+      ansible.builtin.apt:
+        name:
+          - systemd
+          - systemd-sysv
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Install prerequisites (Oracle Linux)
+      ansible.builtin.dnf:
+        name:
+          - systemd
+          - python3
+          - procps-ng
+          - which
+        state: present
+      when: ansible_os_family == 'RedHat'

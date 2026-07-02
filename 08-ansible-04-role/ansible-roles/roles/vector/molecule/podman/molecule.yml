@@ -2,18 +2,26 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 platforms:
   - name: instance
-    image: geerlingguy/docker-ubuntu1604-ansible:latest
+    image: aragast/netology:latest
     pre_build_image: true
     privileged: true
 provisioner:
   name: ansible
   playbooks:
     converge: converge.yml
+    prepare: prepare.yml
     verify: verify.yml
 verifier:
   name: ansible
 scenario:
-  name: ubuntu_xenial
+  name: podman
+  test_sequence:
+    - destroy
+    - create
+    - prepare
+    - converge
+    - verify
+    - destroy

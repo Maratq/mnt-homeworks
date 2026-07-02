@@ -1,0 +1,25 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Update apt cache (Ubuntu)
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == 'Debian'
+
+    - name: Install python3 (Ubuntu)
+      ansible.builtin.apt:
+        name: python3
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Install prerequisites (Oracle Linux)
+      ansible.builtin.dnf:
+        name:
+          - python3
+          - procps-ng
+        state: present
+      when: ansible_os_family == 'RedHat'
