@@ -42,5 +42,17 @@
 ### Как оформить решение задания
 
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
+<img width="1496" height="522" alt="image" src="https://github.com/user-attachments/assets/2f662607-a5dc-40af-8b93-ebe4dbc74bea" />
+<img width="1042" height="109" alt="image" src="https://github.com/user-attachments/assets/d7e32088-0c49-46ba-92fa-6e5b64b7d7a1" />
+основные ошибки это подключение с кликхаус и не могу установить питона на centos
+
+TASK [clickhouse : Check if ClickHouse is running] ****************************************************************************************************************************************************************************************************
+fatal: [clickhouse-01]: FAILED! => {"changed": false, "cmd": ["clickhouse-client", "-q", "SELECT 1"], "delta": "0:00:00.040843", "end": "2026-06-27 08:59:57.357500", "msg": "non-zero return code", "rc": 210, "start": "2026-06-27 08:59:57.316657", "stderr": "Code: 210. DB::NetException: Connection refused (localhost:9000). (NETWORK_ERROR)", "stderr_lines": ["Code: 210. DB::NetException: Connection refused (localhost:9000). (NETWORK_ERROR)"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+
+
+Trying other mirror.
+http://vault.centos.org/centos/7/os/x86_64/repodata/repomd.xml: [Errno 14] curl#7 - "Failed to connect to 2600:9000:20a8:6000:2:2c4f:b500:93a1: Network is unreachable"
 
 ---
