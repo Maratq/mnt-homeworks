@@ -189,8 +189,11 @@ if __name__ == '__main__':
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
 
 <img width="802" height="572" alt="image" src="https://github.com/user-attachments/assets/d4b70326-0e54-4d72-aed5-7b8ecca935bc" />
+
 <img width="765" height="196" alt="image" src="https://github.com/user-attachments/assets/27a6e27c-1717-40a0-a540-d91fbbfd1065" />
+
 <img width="1268" height="230" alt="image" src="https://github.com/user-attachments/assets/6a5cf469-74c3-41b5-a24f-df59ad5091da" />
+
 <img width="750" height="76" alt="image" src="https://github.com/user-attachments/assets/842a8f64-9258-44de-90a7-03e02ff92638" />
 
 ## Необязательная часть
