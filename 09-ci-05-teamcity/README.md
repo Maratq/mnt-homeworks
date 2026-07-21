@@ -35,7 +35,7 @@
 
 <img width="1153" height="667" alt="image" src="https://github.com/user-attachments/assets/c795348b-b174-4630-9796-18c6881bb3a7" />
 <img width="1496" height="473" alt="image" src="https://github.com/user-attachments/assets/da1842c5-78df-4b0b-bdcc-825b4f6da3a8" />
-<img width="594" height="315" alt="image" src="https://github.com/user-attachments/assets/c2b0f194-f8be-4e39-ade7-f0cad702b05d" />
+
 <img width="464" height="326" alt="image" src="https://github.com/user-attachments/assets/b588c88f-e2c1-436d-bbe6-c18c83aa208f" />
 
 https://github.com/Maratq/example-teamcity
