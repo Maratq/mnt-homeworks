@@ -31,6 +31,14 @@
 18. Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity.
 19. В ответе пришлите ссылку на репозиторий.
 
+<img width="548" height="591" alt="image" src="https://github.com/user-attachments/assets/e0390926-b8b6-45d2-b313-f434a5eda083" />
+
+<img width="1153" height="667" alt="image" src="https://github.com/user-attachments/assets/c795348b-b174-4630-9796-18c6881bb3a7" />
+<img width="1496" height="473" alt="image" src="https://github.com/user-attachments/assets/da1842c5-78df-4b0b-bdcc-825b4f6da3a8" />
+<img width="594" height="315" alt="image" src="https://github.com/user-attachments/assets/c2b0f194-f8be-4e39-ade7-f0cad702b05d" />
+![Uploading image.png…]()
+
+
 ---
 
 ### Как оформить решение задания
