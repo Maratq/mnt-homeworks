@@ -25,6 +25,7 @@
 1. Зайдите в веб-интерфейс grafana, используя авторизационные данные, указанные в манифесте docker-compose.
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
+<img width="975" height="368" alt="image" src="https://github.com/user-attachments/assets/dbd700fb-b122-4d67-8936-fd10ea98dd33" />
 
 ## Задание 2
 
@@ -36,22 +37,29 @@
 
 Создайте Dashboard и в ней создайте Panels:
 
-- утилизация CPU для nodeexporter (в процентах, 100-idle);
-- CPULA 1/5/15;
-- количество свободной оперативной памяти;
-- количество места на файловой системе.
+утилизация CPU для nodeexporter (в процентах, 100-idle);
+```100 - (avg by (cpu)(irate(node_cpu_seconds_total{job="node",mode="idle"}[5m])) * 100) ```
+CPULA 1/5/15;
+``` node_load1    node_load5    node_load15```
+количество свободной оперативной памяти;
+```node_memory_MemFree_bytes```
+количество места на файловой системе.
+```node_filesystem_avail_bytes```
+
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+<img width="1287" height="459" alt="image" src="https://github.com/user-attachments/assets/fba59745-2573-4ce8-93c2-ccb9cd76dce2" />
 
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
+<img width="1037" height="210" alt="image" src="https://github.com/user-attachments/assets/04cbd43e-0efe-4904-9ff0-3544c49c95a8" />
 
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
-1. В качестве решения задания приведите листинг этого файла.
+1. В качестве решения задания приведите листинг этого [файла](url).
 
 ---
 
