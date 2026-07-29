@@ -59,7 +59,7 @@ CPULA 1/5/15;
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
-1. В качестве решения задания приведите листинг этого [файла]([url](https://github.com/Maratq/mnt-homeworks/blob/MNT-video/10-monitoring-03-grafana/dash.json)).
+1. В качестве решения задания приведите листинг этого [файла]([url](https://github.com/Maratq/mnt-homeworks/blob/MNT-video/10-monitoring-03-grafana/dash.json))
 
 ---
 
