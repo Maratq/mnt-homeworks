@@ -44,6 +44,10 @@ Filebeat следует сконфигурировать для отправки
 - docker-compose манифест (если вы не использовали директорию help);
 - ваши yml-конфигурации для стека (если вы не использовали директорию help).
 
+<img width="324" height="180" alt="image" src="https://github.com/user-attachments/assets/aa433480-5c92-45e9-a2f9-9b4bdc40be0c" />
+<img width="1109" height="653" alt="image" src="https://github.com/user-attachments/assets/952edccd-2713-49e9-a289-4dc2ff79f0df" />
+<img width="1238" height="344" alt="image" src="https://github.com/user-attachments/assets/307cab61-6826-4fb4-bfb2-ccce4f3d1c38" />
+
 ## Задание 2
 
 Перейдите в меню [создания index-patterns  в kibana](http://localhost:5601/app/management/kibana/indexPatterns/create) и создайте несколько index-patterns из имеющихся.
@@ -54,6 +58,8 @@ Filebeat следует сконфигурировать для отправки
 Эти логи должны порождать индекс logstash-* в elasticsearch. Если этого индекса нет — воспользуйтесь советами и источниками из раздела «Дополнительные ссылки» этого задания.
  
 ---
+<img width="1485" height="476" alt="image" src="https://github.com/user-attachments/assets/ab30a470-d95c-49d9-b07f-94f92e13fbd1" />
+<img width="1482" height="455" alt="image" src="https://github.com/user-attachments/assets/afce8e8b-d9f2-4a2c-a7da-b8cf36be4589" />
 
 ### Как оформить решение задания
 
